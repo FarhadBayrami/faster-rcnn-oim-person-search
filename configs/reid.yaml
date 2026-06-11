@@ -1,0 +1,36 @@
+# configs/reid.yaml
+# Stage 2: Re-ID head with OIM loss
+
+model:
+  backbone: resnet50
+  embedding_dim: 256
+  oim_num_features: 256
+  oim_momentum: 0.5
+  oim_scalar: 30.0
+  detector_checkpoint: results/detector/best_detector.pth
+
+data:
+  root: data/PRW
+  batch_size: 4
+  num_workers: 4
+  image_size: [256, 128]     # H x W for cropped re-id
+  random_erasing: true
+  random_flip: true
+
+optimizer:
+  type: Adam
+  lr: 0.00035
+  weight_decay: 0.0005
+
+scheduler:
+  type: WarmupMultiStepLR
+  milestones: [40, 70]
+  gamma: 0.1
+  warmup_factor: 0.01
+  warmup_iters: 10
+
+training:
+  epochs: 90
+  log_interval: 50
+  save_dir: results/reid
+  val_interval: 5
