@@ -71,13 +71,15 @@ The architecture is inspired by the OIM loss formulation from Xiao et al. (CVPR 
 | Val   | 570    | 482 | 1,805       | 1,491             |
 | Test  | 6,112  | 450 | 25,062      | 19,127            |
 
-After downloading, place the dataset as:
-data/
-└── PRW/
-├── frames/
-├── annotations/
-├── query_info.txt
-└── frame_test.mat / frame_train.mat / ...
+After downloading, place the dataset in the following structure:
+
+| Path | Description |
+|------|-------------|
+| `data/PRW/frames/` | Scene frame images |
+| `data/PRW/annotations/` | Annotation files |
+| `data/PRW/query_info.txt` | Query person information |
+| `data/PRW/frame_test.mat` | Test frame list |
+| `data/PRW/frame_train.mat` | Train frame list |
 ---
 
 ## 📊 Results
